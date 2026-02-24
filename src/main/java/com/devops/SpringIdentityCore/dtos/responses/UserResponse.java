@@ -9,16 +9,12 @@ import java.time.LocalDateTime;
 public record UserResponse(
 
         Long id,
-
         @Schema(description = "שם מלא של המשתמש", example = "ישראל ישראלי")
         String fullName,
-
         @Schema(description = "כתובת האימייל של המשתמש", example = "israel@example.com")
         String email,
-
         @Schema(description = "סוג המשתמש", example = "USER/ADMIN")
         Role role,
-
         @Schema(description = "זמן יצירת החשבון במערכת", example = "2026-02-22T10:00:00")
         LocalDateTime createdAt
 ){}

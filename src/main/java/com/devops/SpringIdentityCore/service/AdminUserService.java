@@ -61,10 +61,10 @@ public class AdminUserService {
         if (userRepository.existsByEmail(request.email().toLowerCase().trim()))
             throw new RuntimeException("כתובת האימייל כבר קיימת במערכת");
         // 1. מיפוי ל-Entity מה-DTO (גם אם נשלח שם Role אחר, אנחנו נדרוס אותו)
-        User adminUser = userMapper.toEntity(request);
+        User adminUser = userMapper.toEntity(request);//הייתה לי בעיה למרות שב default הגדרתי true לכן אני עשיתי פה ביצוע שנית
         // 2. הצפנת סיסמה
         adminUser.setPassword(passwordEncoder.encode(request.password()));
-        // 3. קביעה קשיחה של התפקיד ל-ADMIN כדי לקבל אבטחה מקסימלית
+        // 3. קביע  של התפקיד ל-ADMIN כדי לקבל אבטחה מקסימלית
         adminUser.setRole(Role.ADMIN);
         adminUser.setEnabled(true);
         User savedAdmin = userRepository.save(adminUser);

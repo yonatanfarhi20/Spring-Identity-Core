@@ -1,6 +1,5 @@
 package com.devops.SpringIdentityCore.dtos.requests;
 
-
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
@@ -17,7 +16,6 @@ public record UserUpdateRequest(
         )
         @Size(min = 2, max = 50, message = "השם חייב להיות בין 2 ל-50 תווים")
         String fullName,
-
         @Schema(
                 description = "סיסמה חדשה לעדכון (תתעדכן רק אם יישלח ערך תקין)",
                 example = "NewSecureP@ss1!",

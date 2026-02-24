@@ -1,6 +1,5 @@
 package com.devops.SpringIdentityCore.service;
 
-
 import com.devops.SpringIdentityCore.dtos.requests.UserUpdateRequest;
 import com.devops.SpringIdentityCore.dtos.responses.UserResponse;
 import com.devops.SpringIdentityCore.mapper.UserMapper;
@@ -41,7 +40,6 @@ public class UserProfileService {
         validateOwnershipOrAdmin(id); // בדיקת הרשאה לפני מחיקה
         userRepository.softDelete(id);
     }
-
      // מתודת עזר לבדיקה האם המשתמש המחובר הוא בעל המידע או מנהל.
      // במידה ולא, תיזרק שגיאת AccessDenied שתחזור למשתמש בעברית.
     public void validateOwnershipOrAdmin(Long targetUserId) {
@@ -55,7 +53,6 @@ public class UserProfileService {
             throw new AccessDeniedException("אין לך הרשאה לגשת או לערוך מידע זה");
         }
     }
-
      // משמש עבור ה-PreAuthorize בקונטרולר
     public boolean isOwner(Long id) {
         String email = securityUtils.getCurrentUserEmail();

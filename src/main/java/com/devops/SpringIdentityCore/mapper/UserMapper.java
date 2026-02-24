@@ -1,6 +1,5 @@
 package com.devops.SpringIdentityCore.mapper;
 
-
 import com.devops.SpringIdentityCore.dtos.requests.UserRegistrationRequest;
 import com.devops.SpringIdentityCore.dtos.requests.UserUpdateRequest;
 import com.devops.SpringIdentityCore.dtos.responses.UserResponse;

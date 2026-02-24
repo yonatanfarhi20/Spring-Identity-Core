@@ -5,7 +5,6 @@ import jakarta.validation.constraints.*;
 
 @Schema(description = "בקשה להתחברות למערכת")
 public record LoginRequest(
-
         @Schema(
                 description = "כתובת האימייל של המשתמש",
                 example = "user@example.com",
@@ -14,7 +13,6 @@ public record LoginRequest(
         @Email(message = "כתובת האימייל אינה תקינה")
         @NotBlank(message = "חובה להזין אימייל")
         String email,
-
         @Schema(
                 description = "סיסמת המשתמש (חייבת לעמוד בתקני האבטחה)",
                 example = "P@ssword123",

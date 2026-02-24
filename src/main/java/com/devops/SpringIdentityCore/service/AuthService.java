@@ -35,7 +35,6 @@ public class AuthService {
         User savedUser = userRepository.save(user);
         return userMapper.toResponse(savedUser);
     }
-
     public AuthResponse login(LoginRequest request) {
         User user = userRepository.findByEmail(request.email().toLowerCase().trim())
                 .orElseThrow(() -> new RuntimeException("משתמש לא נמצא או סיסמה שגויה"));

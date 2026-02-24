@@ -31,34 +31,27 @@ public class JwtService {
                 .signWith(SECRET_KEY)
                 .compact();
     }
-
     // חילוץ ה-Role מהטוקן
     public String extractRole(String token) {
         return extractClaim(token, claims -> (String) claims.get("role"));
     }
-
     public String extractUsername(String token) {
         return extractClaim(token, Claims::getSubject);
     }
-
     public boolean isTokenValid(String token, String email) {
         final String username = extractUsername(token);
         return (username.equals(email) && !isTokenExpired(token));
     }
-
     private boolean isTokenExpired(String token) {
         return extractExpiration(token).before(new Date());
     }
-
     private Date extractExpiration(String token) {
         return extractClaim(token, Claims::getExpiration);
     }
-
     public <T> T extractClaim(String token, Function<Claims, T> claimsResolver) {
         final Claims claims = extractAllClaims(token);
         return claimsResolver.apply(claims);
     }
-
     private Claims extractAllClaims(String token) {
         return Jwts.parser()
                 .verifyWith((SecretKey) SECRET_KEY)
