@@ -39,4 +39,3 @@
 </table>
 
 ---
-[![Docker Image](https://img.shields.io/badge/Docker-Image-blue?logo=docker)](https://hub.docker.com/r/yonatanfarhi20/spring-identity-core)
